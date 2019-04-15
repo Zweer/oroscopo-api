@@ -1,0 +1,59 @@
+service:
+  name: oroscopo-api
+
+plugins:
+  - serverless-webpack
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: ${opt:stage, self:custom.defaultStage}
+  region: eu-west-1
+
+custom:
+  defaultStage: dev
+
+functions:
+  retrieve-daily:
+    handler: lambda/retrieve.daily
+    events:
+      - http:
+          method: get
+          path: daily/{sunsign}
+          request:
+            parameters:
+              paths:
+                sunsign: true
+
+  retrieve-tomorrow:
+    handler: lambda/retrieve.tomorrow
+    events:
+      - http:
+          method: get
+          path: tomorrow/{sunsign}
+          request:
+            parameters:
+              paths:
+                sunsign: true
+
+  retrieve-weekly:
+    handler: lambda/retrieve.weekly
+    events:
+      - http:
+          method: get
+          path: weekly/{sunsign}
+          request:
+            parameters:
+              paths:
+                sunsign: true
+
+  retrieve-yearly:
+    handler: lambda/retrieve.yearly
+    events:
+      - http:
+          method: get
+          path: yearly/{sunsign}
+          request:
+            parameters:
+              paths:
+                sunsign: true

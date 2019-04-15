@@ -6,8 +6,9 @@
     "moduleResolution": "node",
     "noUnusedLocals": true,
     "sourceMap": true,
+    "module": "commonjs",
     "target": "es2017",
-    "outDir": "lib",
+    "outDir": "dist",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
