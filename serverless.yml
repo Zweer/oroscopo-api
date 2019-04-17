@@ -9,9 +9,12 @@ provider:
   runtime: nodejs8.10
   stage: ${opt:stage, self:custom.defaultStage}
   region: eu-west-1
+  environment:
+    ALEXA_SKILL: ${self:custom.alexaSkillId}
 
 custom:
   defaultStage: dev
+  alexaSkillId: amzn1.ask.skill.91645191-9be1-4839-b52d-b3fefda605b1
 
 functions:
   retrieve-daily:
@@ -57,3 +60,8 @@ functions:
             parameters:
               paths:
                 sunsign: true
+
+  alexa:
+    handler: lambda/alexa.handler
+    events:
+      - alexaSkill: ${self:custom.alexaSkillId}

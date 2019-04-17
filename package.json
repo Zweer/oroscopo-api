@@ -5,7 +5,13 @@
   "repository": "https://github.com/Zweer/oroscopo-api.git",
   "author": "Niccolò Olivieri Achille <n.olivieriachille@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "sls": "sls"
+  },
   "dependencies": {
+    "actions-on-google": "^2.6.0",
+    "ask-sdk-core": "^2.5.1",
+    "ask-sdk-model": "^1.15.0",
     "axios": "^0.18.0",
     "cheerio": "^1.0.0-rc.3",
     "moment": "^2.24.0"
