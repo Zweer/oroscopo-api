@@ -65,3 +65,10 @@ functions:
     handler: lambda/alexa.handler
     events:
       - alexaSkill: ${self:custom.alexaSkillId}
+
+  google:
+    handler: lambda/google.app
+    events:
+      - http:
+          method: post
+          path: google
