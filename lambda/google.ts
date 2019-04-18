@@ -51,5 +51,5 @@ function executeAsyncCall(sunsing, period) : Promise<any> {
   const uri = `${apiEndpoint + period}/${sunsing}`;
 
   return axios.get(uri)
-    .then(({ data }) => JSON.parse(data));
+    .then(({ data }) => data);
 }
